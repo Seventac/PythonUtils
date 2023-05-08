@@ -16,11 +16,11 @@ Channel.connect(hostname="192.168.20.128", username='root',
 # 拿到shell
 shell = Channel.invoke_shell()
 # 执行shell命令,可以再里面添加需要的shell命令输入结束记得加上 \n 相当于按回车
-shell.send()
+shellCode = "ifconfig \n"
+shell.send(shellCode)
 # 等待命令执行完成
 time.sleep(2)
 # 获取终端输出结果
 output = shell.recv(65535).decode("utf-8")
 print(output)
 Channel.close()
-
